@@ -15,7 +15,7 @@ const writeProductsToFile = async (products) => {
 
 const createProduct = async (product) => {
   const products = await readProductsFromFile();
-  product.id = v4();
+  // product.id = v4();
   products.push(product);
   await writeProductsToFile(products);
   return product;

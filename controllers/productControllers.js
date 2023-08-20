@@ -52,6 +52,24 @@ const updateProduct = async (req, res) => {
   }
 };
 
+const updateQuantityProduct = async (req, res) => {
+  try {
+    const productId = parseInt(req.params.id);
+    const updatedProduct = req.body;
+    const product = await productService.updateProduct(productId, updatedProduct);
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    res.json(product);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Server error (controller 4)" });
+  }
+};
+
+
 const deleteProduct = async (req, res) => {
   try {
     const productId = parseInt(req.params.id);
@@ -76,6 +94,7 @@ export default {
   getAllProducts,
   updateProduct,
   deleteProduct,
+  updateQuantityProduct
 };
 
 
