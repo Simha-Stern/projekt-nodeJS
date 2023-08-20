@@ -1,7 +1,7 @@
 import fs from "fs/promises"; // Using promises version of fs
 import {v4} from "uuid"
 
-const PRODUCTS_FILE_PATH = "/nodejs/3 server1/db/products.json";
+const PRODUCTS_FILE_PATH = "./db/products.json";
 
 const readProductsFromFile = async () => {
   const data = await fs.readFile(PRODUCTS_FILE_PATH, "utf8");

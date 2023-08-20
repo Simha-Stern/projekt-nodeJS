@@ -1,4 +1,4 @@
-import productService from "/nodejs/3 server1/services/productService";
+import productService from "../services/productService.js";
 
 const createProduct = async (req, res) => {
   try {
@@ -7,31 +7,31 @@ const createProduct = async (req, res) => {
     res.status(201).json(createdProduct);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error (controller 1)" });
   }
 };
 
 const getProduct = async (req, res) => {
   try {
     const productId = parseInt(req.params.id);
-    const product = await productService.getProduct(productId);
+    const product = await productService.getProducts(productId);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
     res.json(product);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error (controller 2)" });
   }
 };
 
 const getAllProducts = async (req, res) => {
   try {
-    const products = await productService.getAllproducts();
+    const products = await productService.getAllProducts();
     res.json(products);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error (controller 3)" });
   }
 };
 
@@ -48,7 +48,7 @@ const updateProduct = async (req, res) => {
     res.json(product);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error (controller 4)" });
   }
 };
 
@@ -64,7 +64,7 @@ const deleteProduct = async (req, res) => {
     res.json(deletedProduct);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Server error (controller 5)" });
   }
 };
 

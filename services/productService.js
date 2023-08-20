@@ -1,4 +1,4 @@
-import productRepository from "/nodejs/3 server1/dal/productsRepository";
+import productRepository from "../dal/productsRepository.js";
 // import { hash } from "bcrypt";
 // import joi from "joi";
 
@@ -21,7 +21,7 @@ import productRepository from "/nodejs/3 server1/dal/productsRepository";
 // };
 
 const getProducts = async (productId) => {
-  return productRepository.getProducts(productId);
+  return productRepository.getProduct(productId);
 };
 
 const getAllProducts = async () => {
