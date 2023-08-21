@@ -15,7 +15,7 @@ app.use(morgan('combined'));
 app.use("/users", loginRoute);
 
 
-productsRouter.createData(data);
+// productsRouter.createData(data);
 
 
 app.listen(port, () => {

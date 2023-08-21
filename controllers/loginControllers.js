@@ -17,6 +17,18 @@ const checkEmailAndPass = async(req, res) => {
 };
 
 const creatUser = async (req, res) => {
+  try{
+  const userData = req.body;
+  const user = await loginService.creatUser(userData);
+  // console.log(user);
+  if (!user) {
+    return res.status(404).json({ message: "User not added" });
+  }
+  res.json({ message: "User successfully added" });
+  }catch (error) {
+    console.error("Error:", error);
+    res.status(404).json({ error: "Server error" });
+  }
 
 };
 

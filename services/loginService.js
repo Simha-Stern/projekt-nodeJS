@@ -23,6 +23,18 @@ const checkEmailAndPass = async(user) => {
   }
 };
 
+const creatUser = async (userData) => {
+  const newUserId = {};
+  newUserId.id = await loginRepository.findId();
+  const newUser = await {...newUserId,...userData}
+  const creating = await loginRepository.creatUser(newUser);
+  if (!creating){
+    return null;
+  }
+  return creating;
+};
+
 export default {
     checkEmailAndPass,
+    creatUser,
 }
