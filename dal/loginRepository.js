@@ -24,6 +24,12 @@ const findId = async () => {
 const findEmail = async (email) => {
   const users = await readUsersFromFile();
   return users.find((user) => user.email === email);
+};
+
+const access = async (idUser) => {
+  const users = await readUsersFromFile();
+  const user = await users.find((user) => user.email === email);
+  return user.isAdmin
 }
 
 
@@ -42,11 +48,12 @@ console.log(email);
   users.push(userData);
   writeUsersToFile(users);
   return userData;}
-  // console.error(`email not speshly - unick`);
+  console.error(`email not speshly - unick`);
 };
 
 export default {
   checkEmailAndPass,
   findId,
+  access,
   creatUser,
 };

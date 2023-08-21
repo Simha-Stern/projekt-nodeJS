@@ -23,6 +23,16 @@ const checkEmailAndPass = async(user) => {
   }
 };
 
+const access = async (userData) => {
+  const emailUser = userData.email;
+  const meneger = access(idUser);
+  if (!meneger){
+    return null
+  }
+  return meneger
+
+}
+
 const creatUser = async (userData) => {
   const newUserId = {};
   newUserId.id = await loginRepository.findId();
@@ -37,4 +47,5 @@ const creatUser = async (userData) => {
 export default {
     checkEmailAndPass,
     creatUser,
+    access,
 }
