@@ -1,3 +1,4 @@
+import { error } from "console";
 import fs from "fs/promises";
 
 const USERS_FILE_PATH = "./db/users.json";
@@ -18,6 +19,11 @@ const findId = async () => {
   const index = users[users.length-1].id;
   console.log(index);
   return index+1
+};
+
+const findEmail = async (email) => {
+  const users = await readUsersFromFile();
+  return users.find((user) => user.email === email);
 }
 
 
@@ -29,9 +35,14 @@ const checkEmailAndPass = async ({email},{password}) => {
 
 const creatUser = async (userData) => {
   const users = await readUsersFromFile();
+  console.log(userData.email);
+  const email = await findEmail(userData.email);
+ if (!email){
+console.log(email);
   users.push(userData);
   writeUsersToFile(users);
-  return userData;
+  return userData;}
+  // console.error(`email not speshly - unick`);
 };
 
 export default {
