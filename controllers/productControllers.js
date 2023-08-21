@@ -55,8 +55,8 @@ const updateProduct = async (req, res) => {
 const updateQuantityProduct = async (req, res) => {
   try {
     const productId = parseInt(req.params.id);
-    const updatedProduct = req.body;
-    const product = await productService.updateProduct(productId, updatedProduct);
+    const quantity = req.body.quantity;
+    const product = await productService.updateQuantity(productId, quantity);
 
     if (!product) {
       return res.status(404).json({ message: "Product not found" });

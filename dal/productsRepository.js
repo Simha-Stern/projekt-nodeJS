@@ -45,6 +45,20 @@ const updateProduct = async (productId, updatedproduct) => {
   return products[productIndex];
 };
 
+const updateQuantity = async (productId, quantity) => {
+  const products = await readProductsFromFile();
+  const productIndex = products.findIndex((product) => product.id == productId);
+
+  if (productIndex === -1) {
+    return null;
+  }
+
+  products[productIndex].quantity += quantity;
+  await writeProductsToFile(products);
+
+  return products[productIndex];
+};
+
 const deleteProduct = async (productId) => {
   const products = await readProductsFromFile();
   const productIndex = products.findIndex((product) => product.id == productId);
@@ -64,5 +78,6 @@ export default {
   getProduct,
   getAllProducts,
   updateProduct,
+  updateQuantity,
   deleteProduct,
 };

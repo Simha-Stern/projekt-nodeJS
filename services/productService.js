@@ -16,6 +16,10 @@ const updateProduct = async (productId, updatedProduct) => {
   return productRepository.updateProduct(productId, updatedProduct);
 };
 
+const updateQuantity = (productId, quantity) => {
+  return productRepository.updateQuantity(productId, quantity);
+};
+
 const deleteProduct = async (productId) => {
   return productRepository.deleteProduct(productId);
 };
@@ -25,5 +29,6 @@ export default {
   getProducts,
   getAllProducts,
   updateProduct,
+  updateQuantity,
   deleteProduct,
 };
