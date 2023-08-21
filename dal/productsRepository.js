@@ -1,5 +1,5 @@
 import fs from "fs/promises"; // Using promises version of fs
-import {v4} from "uuid"
+// import {v4} from "uuid"
 
 const PRODUCTS_FILE_PATH = "./db/products.json";
 
