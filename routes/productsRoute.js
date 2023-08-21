@@ -21,4 +21,12 @@ router.patch("/:id", productController.updateQuantityProduct);
 // DELET localhost:3000/api/products/1
 router.delete("/:id", productController.deleteProduct);
 
-export default router;
+const createData = (address) => {
+    productController.createData(address);
+};
+
+export default {
+    router,
+    createData
+}
+

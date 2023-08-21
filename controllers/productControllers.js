@@ -1,4 +1,16 @@
+import axios from "axios";
 import productService from "../services/productService.js";
+
+const createData = async (address) => {
+  try {
+    const response = await axios.get('https://fakestoreapi.com/products');
+    // console.log((response.data[0]));
+    productService.createData(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 const createProduct = async (req, res) => {
   try {
@@ -89,6 +101,7 @@ const deleteProduct = async (req, res) => {
 
 
 export default {
+  createData,
   createProduct,
   getProduct,
   getAllProducts,

@@ -8,6 +8,11 @@ const readProductsFromFile = async () => {
   return JSON.parse(data);
 };
 
+// const writeFile = async (products) => {
+//   // const updatedDataJSON = JSON.stringify(products);
+//   await fs.writeFile(PRODUCTS_FILE_PATH, products, "utf8");
+// };
+
 const writeProductsToFile = async (products) => {
   const updatedDataJSON = JSON.stringify(products);
   await fs.writeFile(PRODUCTS_FILE_PATH, updatedDataJSON, "utf8");
@@ -74,7 +79,9 @@ const deleteProduct = async (productId) => {
 };
 
 export default {
+  writeProductsToFile,
   createProduct,
+  // writeFile,
   getProduct,
   getAllProducts,
   updateProduct,
