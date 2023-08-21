@@ -4,6 +4,9 @@ import productService from "../services/productService.js";
 const createData = async (address) => {
   try {
     const response = await axios.get('https://fakestoreapi.com/products');
+    response.data.forEach(element => {
+      element.quantity = Math.floor(Math.random()*100)
+    });
     // console.log((response.data[0]));
     productService.createData(response.data);
   } catch (error) {
